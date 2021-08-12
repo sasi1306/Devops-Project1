@@ -10,13 +10,26 @@ Maven is a code build tool which used to convert your code to artifact. this is 
 Download maven packages https://maven.apache.org/download.cgi onto Jenkins server. In this case I am using /opt/maven as my installation directory
 	- Link : https://maven.apache.org/download.cgi
 ```sh
-  # Creating maven directory under /opt
+    # Creating maven directory under /opt
   mkdir /opt/maven
   cd /opt/maven
   # downloading maven version 3.6.0
-  wget http://mirrors.fibergrid.in/apache/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.zip
-  unzip /opt/maven/apache-maven-3.6.0-bin.zip
- ```
+  wget https://mirrors.estointernet.in/apache/maven/maven-3/3.8.1/binaries/apache-maven-3.8.1-bin.tar.gz
+  tar zvxf apache-maven-3.8.1-bin.tar.gz
+  cd apache-maven-3.8.1
+  ls
+  cd bin
+  ./mvn -version
+  [root@ip-172-31-29-97 bin]# ./mvn -version
+Apache Maven 3.8.1 (05c21c65bdfed0f71a2f2ada8b84da59348c4c5d)
+Maven home: /opt/maven/apache-maven-3.8.1
+Java version: 1.8.0_292, vendor: Red Hat, Inc., runtime: /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.292.b10-1.el7_9.x86_64/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "3.10.0-1062.12.1.el7.x86_64", arch: "amd64", family: "unix"
+env
+export PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin:/opt/maven/apache-maven-3.8.1/bin
+echo $PATH
+mvn -version
 	
 Setup M2_HOME and M2 paths in .bash_profile of user and add these to path variable
 ```sh
