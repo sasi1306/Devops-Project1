@@ -19,9 +19,14 @@ yum install java-1.8*
 ### Confirm Java Version
 java -version
 find /usr/lib/jvm/java-1.8* | head -n 3
-#JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.191.b12-1.el7_6.x86_64
+
+# User specific environment and startup programs
+
+JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.292.b10-1.el7_9.x86_64
 export JAVA_HOME
-PATH=$PATH:$JAVA_HOME
+PATH=$PATH:$JAVA_HOME:$HOME
+export PATH
+
 #After setting java path
 
 [root@ip-172-31-29-97 ~]# cat ~/.bash_profile
@@ -31,15 +36,6 @@ PATH=$PATH:$JAVA_HOME
 if [ -f ~/.bashrc ]; then
         . ~/.bashrc
 fi
-
-# User specific environment and startup programs
-JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.292.b10-1.el7_9.x86_64
-export JAVA_HOME
-PATH=$PATH:$JAVA_HOME:$HOME
-
-export PATH
-[root@ip-172-31-29-97 ~]#
-
 # To set it permanently update your .bash_profile
 source ~/.bash_profile
 _The output should be something like this,_
@@ -49,7 +45,6 @@ openjdk version "1.8.0_151"
 OpenJDK Runtime Environment (build 1.8.0_151-b12)
 OpenJDK 64-Bit Server VM (build 25.151-b12, mixed mode)
 ```
-
 ## Install Jenkins
 You can install jenkins using the rpm or by setting up the repo. We will setup the repo so that we can update it easily in future.
 Get latest version of jenkins from https://pkg.jenkins.io/redhat-stable/
